@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Member</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+<form name="form" th:action="@{/addMember}" th:object="${newUser}" method="post">
+    <label>User name:</label><br/>
+    <input type="text" th:field="*{username}" placeholder="User name" autofocus="autofocus" /><br/>
+    <label>Password:</label><br/>
+    <input type="password" th:field="*{password}" placeholder="Password" /><br/>
+    <button type="submit">Add new member</button>
+    <ul th:if="${#fields.hasErrors('*')}">
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+    </ul>
+</form>
+</body>
+</html>
