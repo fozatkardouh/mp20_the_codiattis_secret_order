@@ -24,7 +24,7 @@ public class UserInitialisation {
             User user = new User();
             user.setUsername(username);
             user.setPassword(passwordEncoder.encode("12345"));
-            user.setAuthorities(Collections.singleton("COOLGUY"));
+            user.setAuthorities(Collections.singleton("ROLE_COOLGUY"));
 
             userRepository.save(user);
         };
